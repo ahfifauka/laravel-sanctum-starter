@@ -18,7 +18,10 @@ class AuthenticatedController extends Controller
             User::create($validated);
             return response()->json('User created successfully', 201);
         } catch (\Throwable $th) {
-            Log::error('ERROR: ' . $th->getMessage());
+            Log::error('Register Error', [
+                'message' => $th->getMessage(),
+                'trace' => $th->getTraceAsString(),
+            ]);
             return response()->json('Something went wrong', 500);
         }
     }
