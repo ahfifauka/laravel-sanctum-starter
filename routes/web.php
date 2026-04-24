@@ -8,5 +8,4 @@ Route::get('/', function () {
 });
 
 Route::post('/login', [AuthenticatedController::class, 'login']);
-Route::post('/register', [AuthenticatedController::class, 'register']);
 Route::delete('/logout', [AuthenticatedController::class, 'logout']);
